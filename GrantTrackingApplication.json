@@ -1,0 +1,1246 @@
+{
+    "ApplicationName": "GrantTrackingApplicationHeader12",
+    "DisplayName": "Grant Tracking App",
+    "Description": "Tracks grant money",
+    "ApplicationRoles" : [
+        {
+            "Name": "Goverment",
+            "Description": ""
+        },
+        {
+            "Name": "Recipient",
+            "Description": ""
+        },
+        {
+            "Name": "FlowUser",
+            "Description": ""
+        }
+    ],
+    "Workflows" : [
+        {
+            "Name": "GrantTrackingApplicationHeader12",
+            "DisplayName" : "Grant Tracking App Header",
+            "Description" : "",
+            "Initiators" : ["Recipient"],
+            "StartState": "Requested" ,
+            "Properties" : [
+                {
+                    "Name": "State",
+                    "DisplayName": "State",
+                    "Description": "Holds the state of the contract",
+                    "Type": {
+                        "Name": "state"
+                    }
+                },
+                {
+                    "Name": "Goverment",
+                    "DisplayName": "Goverment",
+                    "Description": "Holds the state of the contract",
+                    "Type": {
+                        "Name": "Goverment"
+                    }
+                },
+                {
+                    "Name": "Recipient",
+                    "DisplayName": "Recipient",
+                    "Description": "Holds the state of the contract",
+                    "Type": {
+                        "Name": "Recipient"
+                    }
+                },
+                {
+                    "Name": "parentContractId",
+                    "DisplayName": "Parent Contract Id",
+                    "Description": "Parent Contract Id",
+                    "Type": {
+                        "Name": "int"
+                    }
+                },
+                {
+                    "Name": "id",
+                    "DisplayName": "Tracking Id",
+                    "Description": "Tracking Id",
+                    "Type": {
+                        "Name": "int"
+                    }
+                },
+                {
+                    "Name": "grantRequested",
+                    "DisplayName": "Grant Requested",
+                    "Description": "Grant Requested",
+                    "Type": {
+                        "Name": "int"
+                    }
+                },
+                {
+                    "Name": "grantApproved",
+                    "DisplayName": "Grant Approved",
+                    "Description": "Grant Approved",
+                    "Type": {
+                        "Name": "int"
+                    }
+                },
+                {
+                    "Name": "grantRemaining",
+                    "DisplayName": "Grant Remaining",
+                    "Description": "Grant Remaining",
+                    "Type": {
+                        "Name": "int"
+                    }
+                },
+                {
+                    "Name": "reportingPeriod",
+                    "DisplayName": "Reporting Period",
+                    "Description": "Reporting Period",
+                    "Type": {
+                        "Name": "int"
+                    }
+                },
+                {
+                    "Name": "gracePeriod",
+                    "DisplayName": "Grace Period",
+                    "Description": "Grace Period",
+                    "Type": {
+                        "Name": "int"
+                    }
+                },
+                {
+                    "Name": "contractIds",
+                    "DisplayName": "Requested Contract Id Array",
+                    "Description": "Requested Contract Id Array",
+                    "Type": {
+                        "Name": "array",
+                        "ElementType" :{
+                            "Name": "int"
+                        }
+                    }
+                },
+                {
+                    "Name": "approvedContractIds",
+                    "DisplayName": "Approved Contract Id Array",
+                    "Description": "Approved Contract Id Array",
+                    "Type": {
+                        "Name": "array",
+                        "ElementType" :{
+                            "Name": "int"
+                        }
+                    }
+                },
+                {
+                    "Name": "outOfComplinaceContractIds",
+                    "DisplayName": "Out of Compliance Contract Id Array",
+                    "Description": "Out of Compliance Contract Id Array",
+                    "Type": {
+                        "Name": "array",
+                        "ElementType" :{
+                            "Name": "int"
+                        }
+                    }
+                },
+                {
+                    "Name": "inComplinaceContractIds",
+                    "DisplayName": "In Compliance Contract Id Array",
+                    "Description": "In Compliance Contract Id Array",
+                    "Type": {
+                        "Name": "array",
+                        "ElementType" :{
+                            "Name": "int"
+                        }
+                    }
+                },
+                {
+                    "Name": "closedContractIds",
+                    "DisplayName": "Closed Contract Id Array",
+                    "Description": "Closed Contract Id Array",
+                    "Type": {
+                        "Name": "array",
+                        "ElementType" :{
+                            "Name": "int"
+                        }
+                    }
+                },
+                {
+                    "Name": "fileUrl",
+                    "DisplayName": "File Url",
+                    "Description": "File Url",
+                    "Type": {
+                        "Name": "string"
+                    }
+                }
+            ],
+            "Constructor" : {
+                "Parameters" : [
+                    {
+                        "Name": "_grantRequested",
+                        "DisplayName": "Grant Requested",
+                        "Description": "Grant Requested",
+                        "Type": {
+                            "Name": "int"
+                        }
+                    },
+                    {
+                        "Name": "_goverment",
+                        "DisplayName": "Goverment",
+                        "Description": "Goverment",
+                        "Type": {
+                            "Name": "Goverment"
+                        }
+                    },
+                    {
+                        "Name": "_fileUrl",
+                        "DisplayName": "File Url",
+                        "Description": "File Url",
+                        "Type": {
+                            "Name": "string"
+                        }
+                    }
+                ]
+            },
+            "Functions": [
+                {
+                    "Name": "requestGrant",
+                    "DisplayName": "Request Grant From Recipient",
+                    "Description": "Request Grant From Recipient",
+                    "Parameters": [
+                        {
+                            "Name": "_grantRequested",
+                            "DisplayName": "Grant Requested",
+                            "Description": "Grant Requested",
+                            "Type": {
+                                "Name": "int"
+                            }
+                        },
+                        {
+                            "Name": "_requestedFrom",
+                            "DisplayName": "Requested From",
+                            "Description": "Requested From",
+                            "Type": {
+                                "Name": "Recipient"
+                            }
+                        },
+                        {
+                            "Name": "_parentContractId",
+                            "DisplayName": "Parent Contract Id",
+                            "Description": "Parent Contract Id",
+                            "Type": {
+                                "Name": "int"
+                            }
+                        },
+                        {
+                            "Name": "_fileUrl",
+                            "DisplayName": "File Url",
+                            "Description": "File Url",
+                            "Type": {
+                                "Name": "string"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "Name": "approveGrant",
+                    "DisplayName": "Approve Grant",
+                    "Description": "Approve Grant",
+                    "Parameters": [
+                        {
+                            "Name": "_grantApproved",
+                            "DisplayName": "Grant Approved",
+                            "Description": "Grant Approved",
+                            "Type": {
+                                "Name": "int"
+                            }
+                        },
+                        {
+                            "Name": "_contractId",
+                            "DisplayName": "Tracking Id",
+                            "Description": "Tracking Id",
+                            "Type": {
+                                "Name": "int"
+                            }
+                        },
+                        {
+                            "Name": "_parnetContractId",
+                            "DisplayName": "Parent Contract Id",
+                            "Description": "Parent Contract Id",
+                            "Type": {
+                                "Name": "int"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "Name": "grantFund",
+                    "DisplayName": "Grant Fund",
+                    "Description": "Grant Fund",
+                    "Parameters": [
+                        {
+                            "Name": "_reportingPeriod",
+                            "DisplayName": "Reporting Period",
+                            "Description": "Reporting Period",
+                            "Type": {
+                                "Name": "int"
+                            }
+                        },
+                        {
+                            "Name": "_gracePeriod",
+                            "DisplayName": "Grace Period",
+                            "Description": "Grace Period",
+                            "Type": {
+                                "Name": "int"
+                            }
+                        },
+                        {
+                            "Name": "_contractId",
+                            "DisplayName": "Tracking Id",
+                            "Description": "Requested From",
+                            "Type": {
+                                "Name": "int"
+                            }
+                        },
+                        {
+                            "Name": "_recipient",
+                            "DisplayName": "Recipient",
+                            "Description": "Recipient",
+                            "Type": {
+                                "Name": "Recipient"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "Name": "requireReporting",
+                    "DisplayName": "Require Reporting",
+                    "Description": "Require Reporting",
+                    "Parameters": [
+                        {
+                            "Name": "_contractId",
+                            "DisplayName": "Tracking Id",
+                            "Description": "Tracking Id",
+                            "Type": {
+                                "Name": "int"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "Name": "report",
+                    "DisplayName": "Report",
+                    "Description": "Report",
+                    "Parameters": [
+                        {
+                            "Name": "_isTriggeredByRecipient",
+                            "DisplayName": "Is triggered by Recipient",
+                            "Description": "Is triggered by Recipient",
+                            "Type": {
+                                "Name": "bool"
+                            }
+                        },
+                        {
+                            "Name": "_isTriggeredByFlow",
+                            "DisplayName": "Is triggered by flow",
+                            "Description": "Is triggered by flow",
+                            "Type": {
+                                "Name": "bool"
+                            }
+                        },
+                        {
+                            "Name": "_grantTransferred",
+                            "DisplayName": "Grant transferred",
+                            "Description": "Grant transferred",
+                            "Type": {
+                                "Name": "int"
+                            }
+                        },
+                        {
+                            "Name": "_grantUsed",
+                            "DisplayName": "Grant used",
+                            "Description": "Grant used",
+                            "Type": {
+                                "Name": "int"
+                            }
+                        },
+                        {
+                            "Name": "_contractId",
+                            "DisplayName": "Tracking Id",
+                            "Description": "Tracking Id",
+                            "Type": {
+                                "Name": "int"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "Name": "close",
+                    "DisplayName": "close",
+                    "Description": "close",
+                    "Parameters": []
+                }
+            ],
+            "States" : [
+                {
+                    "Name": "Requested",
+                    "DisplayName" : "Requested",
+                    "Description": "",
+                    "PercentComplete": 10,
+                    "Style": "Success",
+                    "Transitions": [
+                        {
+                            "AllowedRoles": [ "Recipient" ],
+                            "AllowedInstanceRoles": [ "Goverment" ],
+                            "Description": "Modify attributes of this contract.",
+                            "Function": "approveGrant",
+                            "NextStates": [ "Approved" ],
+                            "DisplayName": "Grant Approved"
+                        }
+                    ]
+                },
+                {
+                    "Name": "Approved",
+                    "DisplayName" : "Grant Approved",
+                    "Description": "",
+                    "PercentComplete": 20,
+                    "Style": "Success",
+                    "Transitions": [
+                        {
+                            "AllowedRoles": [ "Recipient" ],
+                            "AllowedInstanceRoles": [ "Goverment" ],
+                            "Description": "Modify attributes of this contract.",
+                            "Function": "grantFund",
+                            "NextStates": [ "Funded" ],
+                            "DisplayName": "Funded"
+                        }
+                    ]
+                },
+                {
+                    "Name": "Funded",
+                    "DisplayName" : "Grant Funded",
+                    "Description": "",
+                    "PercentComplete": 40,
+                    "Style": "Success",
+                    "Transitions": [
+                        {
+                            "AllowedRoles": [ "FlowUser" ],
+                            "AllowedInstanceRoles": [ ],
+                            "Description": "Modify attributes of this contract.",
+                            "Function": "requireReporting",
+                            "NextStates": [ "ReportingRequired" ],
+                            "DisplayName": "Reporting Required"
+                        },
+                        {
+                            "AllowedRoles": [ "Recipient", "FlowUser" ],
+                            "AllowedInstanceRoles": [ ],
+                            "Description": "Modify attributes of this contract.",
+                            "Function": "report",
+                            "NextStates": [ "Compliant" ],
+                            "DisplayName": "Compiant"
+                        },
+                        {
+                            "AllowedRoles": [ "Recipient", "FlowUser" ],
+                            "AllowedInstanceRoles": [ ],
+                            "Description": "Modify attributes of this contract.",
+                            "Function": "report",
+                            "NextStates": [ "OutOfCompliance" ],
+                            "DisplayName": "Out Of Compliance"
+                        },
+                        {
+                            "AllowedRoles": [ "Recipient" ],
+                            "AllowedInstanceRoles": [ ],
+                            "Description": "Modify attributes of this contract.",
+                            "Function": "requestGrant",
+                            "NextStates": [ "GrantRequestedFromRecipient" ],
+                            "DisplayName": "Grant Requested From Recipient"
+                        }
+                    ]
+                },
+                {
+                    "Name": "ReportingRequired",
+                    "DisplayName" : "Reporting Required",
+                    "Description": "",
+                    "PercentComplete": 60,
+                    "Style": "Success",
+                    "Transitions": [
+                        {
+                            "AllowedRoles": [ "FlowUser" ],
+                            "AllowedInstanceRoles": [ ],
+                            "Description": "Modify attributes of this contract.",
+                            "Function": "requireReporting",
+                            "NextStates": [ "ReportingRequired" ],
+                            "DisplayName": "Reporting Required"
+                        },
+                        {
+                            "AllowedRoles": [ "Recipient", "FlowUser" ],
+                            "AllowedInstanceRoles": [ ],
+                            "Description": "Modify attributes of this contract.",
+                            "Function": "report",
+                            "NextStates": [ "Compliant" ],
+                            "DisplayName": "Compiant"
+                        },
+                        {
+                            "AllowedRoles": [ "Recipient", "FlowUser" ],
+                            "AllowedInstanceRoles": [ ],
+                            "Description": "Modify attributes of this contract.",
+                            "Function": "report",
+                            "NextStates": [ "OutOfCompliance" ],
+                            "DisplayName": "Out Of Compliance"
+                        },
+                        {
+                            "AllowedRoles": [  ],
+                            "AllowedInstanceRoles": [ "Recipient" ],
+                            "Description": "Modify attributes of this contract.",
+                            "Function": "close",
+                            "NextStates": [ "Closed" ],
+                            "DisplayName": "Closed"
+                        },
+                        {
+                            "AllowedRoles": [ "Recipient" ],
+                            "AllowedInstanceRoles": [ ],
+                            "Description": "Modify attributes of this contract.",
+                            "Function": "requestGrant",
+                            "NextStates": [ "GrantRequestedFromRecipient" ],
+                            "DisplayName": "Grant Requested From Recipient"
+                        },
+                        {
+                            "AllowedRoles": [ "Recipient" ],
+                            "AllowedInstanceRoles": [ "Goverment" ],
+                            "Description": "Modify attributes of this contract.",
+                            "Function": "approveGrant",
+                            "NextStates": [ "Approved" ],
+                            "DisplayName": "Grant Approved"
+                        },
+                        {
+                            "AllowedRoles": [ "Recipient" ],
+                            "AllowedInstanceRoles": [ "Goverment" ],
+                            "Description": "Modify attributes of this contract.",
+                            "Function": "grantFund",
+                            "NextStates": [ "Funded" ],
+                            "DisplayName": "Funded"
+                        }
+                    ]
+                },
+                {
+                    "Name": "Compliant",
+                    "DisplayName" : "Compliant",
+                    "Description": "",
+                    "PercentComplete": 80,
+                    "Style": "Success",
+                    "Transitions": [
+                        {
+                            "AllowedRoles": [ "FlowUser" ],
+                            "AllowedInstanceRoles": [ ],
+                            "Description": "Modify attributes of this contract.",
+                            "Function": "requireReporting",
+                            "NextStates": [ "ReportingRequired" ],
+                            "DisplayName": "Reporting Required"
+                        },
+                        {
+                            "AllowedRoles": [ "Recipient", "FlowUser" ],
+                            "AllowedInstanceRoles": [ ],
+                            "Description": "Modify attributes of this contract.",
+                            "Function": "report",
+                            "NextStates": [ "Compliant" ],
+                            "DisplayName": "Compiant"
+                        },
+                        {
+                            "AllowedRoles": [ "Recipient", "FlowUser" ],
+                            "AllowedInstanceRoles": [ ],
+                            "Description": "Modify attributes of this contract.",
+                            "Function": "report",
+                            "NextStates": [ "OutOfCompliance" ],
+                            "DisplayName": "Out Of Compliance"
+                        },
+                        {
+                            "AllowedRoles": [  ],
+                            "AllowedInstanceRoles": [ "Recipient" ],
+                            "Description": "Modify attributes of this contract.",
+                            "Function": "close",
+                            "NextStates": [ "Closed" ],
+                            "DisplayName": "Closed"
+                        },
+                        {
+                            "AllowedRoles": [ "Recipient" ],
+                            "AllowedInstanceRoles": [ ],
+                            "Description": "Modify attributes of this contract.",
+                            "Function": "requestGrant",
+                            "NextStates": [ "GrantRequestedFromRecipient" ],
+                            "DisplayName": "Grant Requested From Recipient"
+                        },
+                        {
+                            "AllowedRoles": [ "Recipient" ],
+                            "AllowedInstanceRoles": [ "Goverment" ],
+                            "Description": "Modify attributes of this contract.",
+                            "Function": "approveGrant",
+                            "NextStates": [ "Approved" ],
+                            "DisplayName": "Grant Approved"
+                        },
+                        {
+                            "AllowedRoles": [ "Recipient" ],
+                            "AllowedInstanceRoles": [ "Goverment" ],
+                            "Description": "Modify attributes of this contract.",
+                            "Function": "grantFund",
+                            "NextStates": [ "Funded" ],
+                            "DisplayName": "Funded"
+                        }
+                    ]
+                },
+                {
+                    "Name": "OutOfCompliance",
+                    "DisplayName" : "Out Of Compliance",
+                    "Description": "",
+                    "PercentComplete": 80,
+                    "Style": "Failure",
+                    "Transitions": [
+                        {
+                            "AllowedRoles": [ "FlowUser" ],
+                            "AllowedInstanceRoles": [ ],
+                            "Description": "Modify attributes of this contract.",
+                            "Function": "requireReporting",
+                            "NextStates": [ "ReportingRequired" ],
+                            "DisplayName": "Reporting Required"
+                        },
+                        {
+                            "AllowedRoles": [ "Recipient", "FlowUser" ],
+                            "AllowedInstanceRoles": [ ],
+                            "Description": "Modify attributes of this contract.",
+                            "Function": "report",
+                            "NextStates": [ "Compliant" ],
+                            "DisplayName": "Compiant"
+                        },
+                        {
+                            "AllowedRoles": [ "Recipient", "FlowUser" ],
+                            "AllowedInstanceRoles": [ ],
+                            "Description": "Modify attributes of this contract.",
+                            "Function": "report",
+                            "NextStates": [ "OutOfCompliance" ],
+                            "DisplayName": "Out Of Compliance"
+                        },
+                        {
+                            "AllowedRoles": [  ],
+                            "AllowedInstanceRoles": [ "Recipient" ],
+                            "Description": "Modify attributes of this contract.",
+                            "Function": "close",
+                            "NextStates": [ "Closed" ],
+                            "DisplayName": "Closed"
+                        },
+                        {
+                            "AllowedRoles": [ "Recipient" ],
+                            "AllowedInstanceRoles": [ ],
+                            "Description": "Modify attributes of this contract.",
+                            "Function": "requestGrant",
+                            "NextStates": [ "GrantRequestedFromRecipient" ],
+                            "DisplayName": "Grant Requested From Recipient"
+                        },
+                        {
+                            "AllowedRoles": [ "Recipient" ],
+                            "AllowedInstanceRoles": [ "Goverment" ],
+                            "Description": "Modify attributes of this contract.",
+                            "Function": "approveGrant",
+                            "NextStates": [ "Approved" ],
+                            "DisplayName": "Grant Approved"
+                        },
+                        {
+                            "AllowedRoles": [ "Recipient" ],
+                            "AllowedInstanceRoles": [ "Goverment" ],
+                            "Description": "Modify attributes of this contract.",
+                            "Function": "grantFund",
+                            "NextStates": [ "Funded" ],
+                            "DisplayName": "Funded"
+                        }
+                    ]
+                },
+                {
+                    "Name": "GrantRequestedFromRecipient",
+                    "DisplayName" : "Grant Requested From Recipient",
+                    "Description": "",
+                    "PercentComplete": 80,
+                    "Style": "Success",
+                    "Transitions": [
+                        {
+                            "AllowedRoles": [ "FlowUser" ],
+                            "AllowedInstanceRoles": [ ],
+                            "Description": "Modify attributes of this contract.",
+                            "Function": "requireReporting",
+                            "NextStates": [ "ReportingRequired" ],
+                            "DisplayName": "Reporting Required"
+                        },
+                        {
+                            "AllowedRoles": [ "Recipient", "FlowUser" ],
+                            "AllowedInstanceRoles": [ ],
+                            "Description": "Modify attributes of this contract.",
+                            "Function": "report",
+                            "NextStates": [ "Compliant" ],
+                            "DisplayName": "Compiant"
+                        },
+                        {
+                            "AllowedRoles": [ "Recipient", "FlowUser" ],
+                            "AllowedInstanceRoles": [ ],
+                            "Description": "Modify attributes of this contract.",
+                            "Function": "report",
+                            "NextStates": [ "OutOfCompliance" ],
+                            "DisplayName": "Out Of Compliance"
+                        },
+                        {
+                            "AllowedRoles": [  ],
+                            "AllowedInstanceRoles": [ "Recipient" ],
+                            "Description": "Modify attributes of this contract.",
+                            "Function": "close",
+                            "NextStates": [ "Closed" ],
+                            "DisplayName": "Closed"
+                        },
+                        {
+                            "AllowedRoles": [ "Recipient" ],
+                            "AllowedInstanceRoles": [ ],
+                            "Description": "Modify attributes of this contract.",
+                            "Function": "requestGrant",
+                            "NextStates": [ "GrantRequestedFromRecipient" ],
+                            "DisplayName": "Grant Requested From Recipient"
+                        },
+                        {
+                            "AllowedRoles": [ "Recipient" ],
+                            "AllowedInstanceRoles": [ "Goverment" ],
+                            "Description": "Modify attributes of this contract.",
+                            "Function": "approveGrant",
+                            "NextStates": [ "Approved" ],
+                            "DisplayName": "Grant Approved"
+                        },
+                        {
+                            "AllowedRoles": [ "Recipient" ],
+                            "AllowedInstanceRoles": [ "Goverment" ],
+                            "Description": "Modify attributes of this contract.",
+                            "Function": "grantFund",
+                            "NextStates": [ "Funded" ],
+                            "DisplayName": "Funded"
+                        }
+                    ]
+                },
+                {
+                    "Name": "Closed",
+                    "DisplayName" : "Closed",
+                    "Description": "",
+                    "PercentComplete": 100,
+                    "Style": "Success",
+                    "Transitions": []
+                }
+            ]
+        },
+        {
+            "Name": "GrantTrackingApplicationLine12",
+            "DisplayName" : "Grant Tracking App Lines",
+            "Description" : "",
+            "Initiators" : [],
+            "StartState": "Requested",
+            "Properties" : [
+                {
+                    "Name": "State",
+                    "DisplayName": "State",
+                    "Description": "Holds the state of the contract",
+                    "Type": {
+                        "Name": "state"
+                    }
+                },
+                {
+                    "Name": "requestedFrom",
+                    "DisplayName": "Requested From",
+                    "Description": "Holds the state of the contract",
+                    "Type": {
+                        "Name": "Recipient"
+                    }
+                },
+                {
+                    "Name": "recipient",
+                    "DisplayName": "Recipient",
+                    "Description": "Holds the state of the contract",
+                    "Type": {
+                        "Name": "Recipient"
+                    }
+                },
+                {
+                    "Name": "parentContractId",
+                    "DisplayName": "Parent Contract Id",
+                    "Description": "Parent Contract Id",
+                    "Type": {
+                        "Name": "int"
+                    }
+                },
+                {
+                    "Name": "id",
+                    "DisplayName": "Tracking Id",
+                    "Description": "Tracking Id",
+                    "Type": {
+                        "Name": "int"
+                    }
+                },
+                {
+                    "Name": "headerContractAddress",
+                    "DisplayName": "Header Contract Address",
+                    "Description": "Header Contract Address",
+                    "Type": {
+                        "Name": "address"
+                    }
+                },
+                {
+                    "Name": "grantRequested",
+                    "DisplayName": "Grant Requested",
+                    "Description": "Grant Requested",
+                    "Type": {
+                        "Name": "int"
+                    }
+                },
+                {
+                    "Name": "grantApproved",
+                    "DisplayName": "Grant Approved",
+                    "Description": "Grant Approved",
+                    "Type": {
+                        "Name": "int"
+                    }
+                },
+                {
+                    "Name": "grantRemaining",
+                    "DisplayName": "Grant Remaining",
+                    "Description": "Grant Remaining",
+                    "Type": {
+                        "Name": "int"
+                    }
+                },
+                {
+                    "Name": "reportingPeriod",
+                    "DisplayName": "Reporting Period",
+                    "Description": "Reporting Period",
+                    "Type": {
+                        "Name": "int"
+                    }
+                },
+                {
+                    "Name": "gracePeriod",
+                    "DisplayName": "Grace Period",
+                    "Description": "Grace Period",
+                    "Type": {
+                        "Name": "int"
+                    }
+                },
+                {
+                    "Name": "fileUrl",
+                    "DisplayName": "File Url",
+                    "Description": "File Url",
+                    "Type": {
+                        "Name": "string"
+                    }
+                }
+            ],
+            "Constructor" : {
+                "Parameters" : [
+                    {
+                        "Name": "_grantRequested",
+                        "DisplayName": "Grant Requested",
+                        "Description": "Grant Requested",
+                        "Type": {
+                            "Name": "int"
+                        }
+                    },
+                    {
+                        "Name": "_requestedFrom",
+                        "DisplayName": "Requested From",
+                        "Description": "Holds the state of the contract",
+                        "Type": {
+                            "Name": "Recipient"
+                        }
+                    },
+                    {
+                        "Name": "_contractId",
+                        "DisplayName": "Tracking Id",
+                        "Description": "Tracking Id",
+                        "Type": {
+                            "Name": "int"
+                        }
+                    },
+                    {
+                        "Name": "_parentContractId",
+                        "DisplayName": "Parent Contract Id",
+                        "Description": "Parent Contract Id",
+                        "Type": {
+                            "Name": "int"
+                        }
+                    },
+                    {
+                        "Name": "_headerContractAddress",
+                        "DisplayName": "Header Contract Address",
+                        "Description": "Header Contract Address",
+                        "Type": {
+                            "Name": "address"
+                        }
+                    },
+                    {
+                        "Name": "_recipient",
+                        "DisplayName": "Recipient",
+                        "Description": "Recipient",
+                        "Type": {
+                            "Name": "Recipient"
+                        }
+                    },
+                    {
+                        "Name": "_fileUrl",
+                        "DisplayName": "File Url",
+                        "Description": "File Url",
+                        "Type": {
+                            "Name": "string"
+                        }
+                    }
+                ]
+            },
+            "Functions": [
+                {
+                    "Name": "approveGrant",
+                    "DisplayName": "Approve Grant",
+                    "Description": "Approve Grant",
+                    "Parameters": [
+                        {
+                            "Name": "_grantApproved",
+                            "DisplayName": "Grant Approved",
+                            "Description": "Grant Approved",
+                            "Type": {
+                                "Name": "int"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "Name": "grantFund",
+                    "DisplayName": "Grant Fund",
+                    "Description": "Grant Fund",
+                    "Parameters": [
+                        {
+                            "Name": "_reportingPeriod",
+                            "DisplayName": "Reporting Period",
+                            "Description": "Reporting Period",
+                            "Type": {
+                                "Name": "int"
+                            }
+                        },
+                        {
+                            "Name": "_gracePeriod",
+                            "DisplayName": "Grace Period",
+                            "Description": "Grace Period",
+                            "Type": {
+                                "Name": "int"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "Name": "requireReporting",
+                    "DisplayName": "Require Reporting",
+                    "Description": "Require Reporting",
+                    "Parameters": [
+                    ]
+                },
+                {
+                    "Name": "requestGrant",
+                    "DisplayName": "Request Grant",
+                    "Description": "Request Grant",
+                    "Parameters": [
+                    ]
+                },
+                {
+                    "Name": "report",
+                    "DisplayName": "Report",
+                    "Description": "Report",
+                    "Parameters": [
+                        {
+                            "Name": "_isTriggeredByRecipient",
+                            "DisplayName": "Is triggered by Recipient",
+                            "Description": "Is triggered by Recipient",
+                            "Type": {
+                                "Name": "bool"
+                            }
+                        },
+                        {
+                            "Name": "_isTriggeredByFlow",
+                            "DisplayName": "Is triggered by flow",
+                            "Description": "Is triggered by flow",
+                            "Type": {
+                                "Name": "bool"
+                            }
+                        },
+                        {
+                            "Name": "_grantTransferred",
+                            "DisplayName": "Grant transferred",
+                            "Description": "Grant transferred",
+                            "Type": {
+                                "Name": "int"
+                            }
+                        },
+                        {
+                            "Name": "_grantUsed",
+                            "DisplayName": "Grant used",
+                            "Description": "Grant used",
+                            "Type": {
+                                "Name": "int"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "Name": "close",
+                    "DisplayName": "close",
+                    "Description": "close",
+                    "Parameters": []
+                }
+            ],
+            "States" : [
+                {
+                    "Name": "Requested",
+                    "DisplayName" : "Requested",
+                    "Description": "",
+                    "PercentComplete": 10,
+                    "Style": "Success",
+                    "Transitions": [
+                        {
+                            "AllowedRoles": [  "FlowUser" ],
+                            "AllowedInstanceRoles": [  ],
+                            "Description": "Modify attributes of this contract.",
+                            "Function": "approveGrant",
+                            "NextStates": [ "Approved" ],
+                            "DisplayName": "Grant Approved"
+                        }
+                    ]
+                },
+                {
+                    "Name": "Approved",
+                    "DisplayName" : "Grant Approved",
+                    "Description": "",
+                    "PercentComplete": 20,
+                    "Style": "Success",
+                    "Transitions": [
+                        {
+                            "AllowedRoles": [  "FlowUser" ],
+                            "AllowedInstanceRoles": [ ],
+                            "Description": "Modify attributes of this contract.",
+                            "Function": "grantFund",
+                            "NextStates": [ "Funded" ],
+                            "DisplayName": "Grant Funded"
+                        }
+                    ]
+                },
+                {
+                    "Name": "Funded",
+                    "DisplayName" : "Grant Funded",
+                    "Description": "",
+                    "PercentComplete": 40,
+                    "Style": "Success",
+                    "Transitions": [
+                        {
+                            "AllowedRoles": [ "FlowUser" ],
+                            "AllowedInstanceRoles": [ ],
+                            "Description": "Modify attributes of this contract.",
+                            "Function": "requireReporting",
+                            "NextStates": [ "ReportingRequired" ],
+                            "DisplayName": "Reporting Required"
+                        },
+                        {
+                            "AllowedRoles": [  "FlowUser" ],
+                            "AllowedInstanceRoles": [ ],
+                            "Description": "Modify attributes of this contract.",
+                            "Function": "report",
+                            "NextStates": [ "Compliant" ],
+                            "DisplayName": "Compiant"
+                        },
+                        {
+                            "AllowedRoles": [ "FlowUser" ],
+                            "AllowedInstanceRoles": [ ],
+                            "Description": "Modify attributes of this contract.",
+                            "Function": "report",
+                            "NextStates": [ "OutOfCompliance" ],
+                            "DisplayName": "Out Of Compliance"
+                        }
+                    ]
+                },
+                {
+                    "Name": "ReportingRequired",
+                    "DisplayName" : "Reporting Required",
+                    "Description": "",
+                    "PercentComplete": 60,
+                    "Style": "Success",
+                    "Transitions": [
+                        {
+                            "AllowedRoles": [ "FlowUser" ],
+                            "AllowedInstanceRoles": [ ],
+                            "Description": "Modify attributes of this contract.",
+                            "Function": "requireReporting",
+                            "NextStates": [ "ReportingRequired" ],
+                            "DisplayName": "Reporting Required"
+                        },
+                        {
+                            "AllowedRoles": [  "FlowUser" ],
+                            "AllowedInstanceRoles": [ ],
+                            "Description": "Modify attributes of this contract.",
+                            "Function": "report",
+                            "NextStates": [ "Compliant" ],
+                            "DisplayName": "Compiant"
+                        },
+                        {
+                            "AllowedRoles": [ "FlowUser" ],
+                            "AllowedInstanceRoles": [ ],
+                            "Description": "Modify attributes of this contract.",
+                            "Function": "report",
+                            "NextStates": [ "OutOfCompliance" ],
+                            "DisplayName": "Out Of Compliance"
+                        },
+                        {
+                            "AllowedRoles": [ "FlowUser" ],
+                            "AllowedInstanceRoles": [  ],
+                            "Description": "Modify attributes of this contract.",
+                            "Function": "close",
+                            "NextStates": [ "Closed" ],
+                            "DisplayName": "Closed"
+                        }
+                    ]
+                },
+                {
+                    "Name": "Compliant",
+                    "DisplayName" : "Compliant",
+                    "Description": "",
+                    "PercentComplete": 80,
+                    "Style": "Success",
+                    "Transitions": [
+                        {
+                            "AllowedRoles": [ "FlowUser" ],
+                            "AllowedInstanceRoles": [ ],
+                            "Description": "Modify attributes of this contract.",
+                            "Function": "requireReporting",
+                            "NextStates": [ "ReportingRequired" ],
+                            "DisplayName": "Reporting Required"
+                        },
+                        {
+                            "AllowedRoles": [ "FlowUser" ],
+                            "AllowedInstanceRoles": [ ],
+                            "Description": "Modify attributes of this contract.",
+                            "Function": "report",
+                            "NextStates": [ "Compliant" ],
+                            "DisplayName": "Compiant"
+                        },
+                        {
+                            "AllowedRoles": [ "FlowUser" ],
+                            "AllowedInstanceRoles": [ ],
+                            "Description": "Modify attributes of this contract.",
+                            "Function": "report",
+                            "NextStates": [ "OutOfCompliance" ],
+                            "DisplayName": "Out Of Compliance"
+                        },
+                        {
+                            "AllowedRoles": [  "FlowUser" ],
+                            "AllowedInstanceRoles": [ ],
+                            "Description": "Modify attributes of this contract.",
+                            "Function": "close",
+                            "NextStates": [ "Closed" ],
+                            "DisplayName": "Closed"
+                        },
+                        {
+                            "AllowedRoles": [  "FlowUser" ],
+                            "AllowedInstanceRoles": [ ],
+                            "Description": "Modify attributes of this contract.",
+                            "Function": "requestGrant",
+                            "NextStates": [ "GrantRequestedFromRecipient" ],
+                            "DisplayName": "Grant Requested From Recipient"
+                        }
+                    ]
+                },
+                {
+                    "Name": "OutOfCompliance",
+                    "DisplayName" : "Out Of Compliance",
+                    "Description": "",
+                    "PercentComplete": 80,
+                    "Style": "Failure",
+                    "Transitions": [
+                        {
+                            "AllowedRoles": [ "FlowUser" ],
+                            "AllowedInstanceRoles": [ ],
+                            "Description": "Modify attributes of this contract.",
+                            "Function": "requireReporting",
+                            "NextStates": [ "ReportingRequired" ],
+                            "DisplayName": "Reporting Required"
+                        },
+                        {
+                            "AllowedRoles": [ "FlowUser" ],
+                            "AllowedInstanceRoles": [ ],
+                            "Description": "Modify attributes of this contract.",
+                            "Function": "report",
+                            "NextStates": [ "Compliant" ],
+                            "DisplayName": "Compiant"
+                        },
+                        {
+                            "AllowedRoles": [ "FlowUser" ],
+                            "AllowedInstanceRoles": [ ],
+                            "Description": "Modify attributes of this contract.",
+                            "Function": "report",
+                            "NextStates": [ "OutOfCompliance" ],
+                            "DisplayName": "Out Of Compliance"
+                        },
+                        {
+                            "AllowedRoles": [ "FlowUser" ],
+                            "AllowedInstanceRoles": [ ],
+                            "Description": "Modify attributes of this contract.",
+                            "Function": "close",
+                            "NextStates": [ "Closed" ],
+                            "DisplayName": "Closed"
+                        }
+                    ]
+                },
+                {
+                    "Name": "GrantRequestedFromRecipient",
+                    "DisplayName" : "Grant Requested From Recipient",
+                    "Description": "",
+                    "PercentComplete": 80,
+                    "Style": "Success",
+                    "Transitions": [
+                        {
+                            "AllowedRoles": [ "FlowUser" ],
+                            "AllowedInstanceRoles": [ ],
+                            "Description": "Modify attributes of this contract.",
+                            "Function": "requireReporting",
+                            "NextStates": [ "ReportingRequired" ],
+                            "DisplayName": "Reporting Required"
+                        },
+                        {
+                            "AllowedRoles": [ "FlowUser" ],
+                            "AllowedInstanceRoles": [ ],
+                            "Description": "Modify attributes of this contract.",
+                            "Function": "report",
+                            "NextStates": [ "Compliant" ],
+                            "DisplayName": "Compiant"
+                        },
+                        {
+                            "AllowedRoles": [ "FlowUser" ],
+                            "AllowedInstanceRoles": [ ],
+                            "Description": "Modify attributes of this contract.",
+                            "Function": "report",
+                            "NextStates": [ "OutOfCompliance" ],
+                            "DisplayName": "Out Of Compliance"
+                        },
+                        {
+                            "AllowedRoles": [  "FlowUser" ],
+                            "AllowedInstanceRoles": [ ],
+                            "Description": "Modify attributes of this contract.",
+                            "Function": "close",
+                            "NextStates": [ "Closed" ],
+                            "DisplayName": "Closed"
+                        },
+                        {
+                            "AllowedRoles": [  "FlowUser" ],
+                            "AllowedInstanceRoles": [ ],
+                            "Description": "Modify attributes of this contract.",
+                            "Function": "requestGrant",
+                            "NextStates": [ "GrantRequestedFromRecipient" ],
+                            "DisplayName": "Grant Requested From Recipient"
+                        }
+                    ]
+                },
+                {
+                    "Name": "Closed",
+                    "DisplayName" : "Closed",
+                    "Description": "",
+                    "PercentComplete": 100,
+                    "Style": "Success",
+                    "Transitions": []
+                }
+            ]
+        }
+    ]
+}
